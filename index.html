@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="mainn">
+
+        <div class="container">
+            <h1>EXPENSE TRACKER</h1>
+            <div class="formy">
+                <form name="exxpp" method="post" id="formm">
+                    <p><label for="exp">Enter Your Expense Description:</label></p>
+                    <input type="text" required placeholder="Description" id="expense" name="exp">
+                    <p> <label for="caty">Select Category :</label></p>
+                    <select name="caty" id="category">
+                        <option value="Rent" selected>Rent</option>
+                        <option value="travel">Travel</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Education">Education</option>
+                        <option value="grocery">Groceries</option>
+                        <option value="others">Others</option>
+                    </select>
+
+                    <p><label for="amt">Enter Amount :</label></p>
+                    <input type="number" id="amount" name="amt" placeholder="Amount" required>
+
+                    <p><input type="submit" value="Submit"></p>
+
+
+
+
+                </form>
+
+            </div>
+
+            <div class="tably" style="overflow-x:auto;">
+                <h1 style="font-size: 35px;">EXPENSE SHEET</h1>
+                <table id="exptable">
+                    <tr>
+                        <th>Expense</th>
+                        <th>Category</th>
+                        <th>Amount(rs)</th>
+                    </tr>
+
+                    <tbody id="listable">
+
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <script>
+        var formm = document.getElementById("formm");
+        var listtt = document.getElementById("listable");
+        formm.addEventListener('submit', function addli(event) {
+            event.preventDefault();
+            var exp = document.getElementById('expense').value;
+            var catt = document.getElementById('category').value;
+            var amtt = document.getElementById('amount').value;
+
+            if (exp && catt && !isNaN(amtt)) {
+
+
+                const newrow = document.createElement('tr');
+                newrow.innerHTML = `<td>${exp}</td><td>${catt}</td><td>${amtt}</td>`;
+                listtt.appendChild(newrow);
+                document.getElementById('expense').value = "";
+
+                document.getElementById('amount').value = "";
+
+
+            }
+
+
+
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
